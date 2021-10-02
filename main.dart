@@ -12,10 +12,11 @@ void main() async {
       // Label, BigLabel, HorizontalLine, VerticalLine,
       // ProgressBar, Padding, Fill, Gauge, Text, Box
       DateTime time = DateTime.now().toUtc().subtract(const Duration(hours: 7));
-      screen.updateWidgets(
+      world.tick();
+      /*screen.updateWidgets(
         BracketFrame(
           top: Header(
-            text: 'WORLD',
+            text: "${world.countWater()}",
             foreground: Color.black,
             background: Color.yellow,
           ),
@@ -36,20 +37,18 @@ void main() async {
           body: Column(
             children: <Height<Widget>>[
               Height.fill(
-                Box(
-                  child: Text(
-                    text: '$world',
-                    textAlign: TextAlign.center,
-                    foreground: Color.gray,
-                    background: Color.black,
-                  ),
+                Text(
+                  text: '$world',
+                  textAlign: TextAlign.center,
+                  foreground: Color.white,
+                  background: Color.black,
                 ),
               ),
             ],
           ),
         ),
-      );
-      await Future.delayed(const Duration(milliseconds: 100));
+      );*/
+      print(world.countWater());
     }
   } catch (e, stack) {
     screen.dispose();
